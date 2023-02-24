@@ -1,0 +1,21 @@
+{
+  "name": "qrcode-notification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Reinaldy Rafli <aldy505@proton.me>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "lokijs": "^1.5.12",
+    "polka": "^1.0.0-next.22",
+    "qrcode": "^1.5.1",
+    "sirv": "^2.0.2",
+    "templite": "^1.2.0"
+  }
+}

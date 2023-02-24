@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <title>Empty parameter</title>
+</head>
+<body>
+    <h1>Welcome, please scan this shit:</h1>
+    <div>
+        <img src="{{ qrcode_dataurl }}" />
+    </div>
+    <h2 id="confirm"></h2>
+    <script>
+        const htmlElement = document.getElementById("confirm");
+        let confirmed = false;
+        setInterval(async () => {
+            if (confirmed) return;
+
+            const response = await fetch("/status?id={{ qrcode_id }}");
+            if (response.status === 200) {
+                htmlElement.innerHTML = "Confirmed! On: " + new Date().toString()
+                confirmed = true;
+                return;
+            }
+        }, 2_000); // 2 seconds
+    </script>
+</body>
+</html>
